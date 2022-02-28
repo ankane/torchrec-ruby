@@ -6,6 +6,18 @@ class ModulesTest < Minitest::Test
     assert sln
   end
 
+  def test_cross_net
+    skip "Requires torch-rb 0.9.3"
+
+    batch_size = 3
+    num_layers = 2
+    in_features = 10
+    input = Torch.randn(batch_size, in_features)
+    dcn = TorchRec::Modules::CrossNet::CrossNet.new(in_features, num_layers)
+    output = dcn.call(input)
+    assert output
+  end
+
   def test_mlp
     batch_size = 3
     in_size = 40
