@@ -31,6 +31,17 @@ class ModulesTest < Minitest::Test
     assert deep_fm_output
   end
 
+  def test_factorization_machine
+    batch_size = 3
+    input_embeddings = [
+      Torch.randn(batch_size, 2, 64),
+      Torch.randn(batch_size, 2, 32)
+    ]
+    fm = TorchRec::Modules::DeepFM::FactorizationMachine.new
+    output = fm.call(input_embeddings)
+    assert output
+  end
+
   def test_mlp
     batch_size = 3
     in_size = 40
