@@ -18,6 +18,19 @@ class ModulesTest < Minitest::Test
     assert output
   end
 
+  def test_deepfm
+    batch_size = 3
+    output_dim = 30
+    input_embeddings = [
+      Torch.randn(batch_size, 2, 64),
+      Torch.randn(batch_size, 2, 32)
+    ]
+    dense_module = Torch::NN::Linear.new(192, output_dim)
+    deepfm = TorchRec::Modules::DeepFM::DeepFM.new(dense_module)
+    deep_fm_output = deepfm.call(input_embeddings)
+    assert deep_fm_output
+  end
+
   def test_mlp
     batch_size = 3
     in_size = 40
