@@ -15,6 +15,9 @@ require "torchrec/modules/mlp/mlp"
 require "torchrec/modules/mlp/perceptron"
 require "torchrec/modules/utils"
 
+# sparse
+require "torchrec/sparse/jagged_tensor"
+
 # other
 require "torchrec/version"
 
