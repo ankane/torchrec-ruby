@@ -35,6 +35,9 @@ TorchRec::Models::DLRM::DenseArch.new(in_features, layer_sizes, device: nil)
 
 ```ruby
 TorchRec::Modules::Activation::SwishLayerNorm.new(input_dims, device: nil)
+TorchRec::Modules::CrossNet::CrossNet.new(in_features, num_layers) # [unreleased]
+TorchRec::Modules::DeepFM::DeepFM.new(dense_module) # [unreleased]
+TorchRec::Modules::DeepFM::FactorizationMachine.new # [unreleased]
 TorchRec::Modules::MLP::MLP.new(in_size, layer_sizes, bias: true, activation: :relu, device: nil)
 TorchRec::Modules::MLP::Perceptron.new(in_size, out_size, bias: true, activation: Torch.method(:relu), device: nil)
 ```
