@@ -1,0 +1,26 @@
+name: build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_BUILD__TORCH___RB: "--with-torch-dir=/home/runner/libtorch"
+      LIBTORCH_VERSION: 1.10.1
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      with:
+        path: ~/libtorch
+        key: libtorch-${{ env.LIBTORCH_VERSION }}
+      id: cache-libtorch
+    - name: Download LibTorch
+      if: steps.cache-libtorch.outputs.cache-hit != 'true'
+      run: |
+        cd ~
+        wget -q -O libtorch.zip https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-$LIBTORCH_VERSION%2Bcpu.zip
+        unzip -q libtorch.zip
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.1
+        bundler-cache: true
+    - run: bundle exec rake test
