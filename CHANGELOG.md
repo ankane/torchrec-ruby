@@ -1,4 +1,4 @@
-## 0.0.2 (unreleased)
+## 0.0.2 (2022-03-14)
 
 - Added `JaggedTensor`
 - Added `CrossNet`, `DeepFM`, and `FactorizationMachine` modules
