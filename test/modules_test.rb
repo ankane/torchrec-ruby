@@ -7,8 +7,6 @@ class ModulesTest < Minitest::Test
   end
 
   def test_cross_net
-    skip "Requires torch-rb 0.9.3"
-
     batch_size = 3
     num_layers = 2
     in_features = 10
