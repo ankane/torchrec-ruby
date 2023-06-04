@@ -1,25 +1,25 @@
 # dependencies
-require "torch"
+require "torch-rb"
 
 # models
-require "torchrec/models/deepfm/dense_arch"
-require "torchrec/models/deepfm/over_arch"
-require "torchrec/models/dlrm/dense_arch"
+require_relative "torchrec/models/deepfm/dense_arch"
+require_relative "torchrec/models/deepfm/over_arch"
+require_relative "torchrec/models/dlrm/dense_arch"
 
 # modules
-require "torchrec/modules/activation/swish_layer_norm"
-require "torchrec/modules/cross_net/cross_net"
-require "torchrec/modules/deepfm/deepfm"
-require "torchrec/modules/deepfm/factorization_machine"
-require "torchrec/modules/mlp/mlp"
-require "torchrec/modules/mlp/perceptron"
-require "torchrec/modules/utils"
+require_relative "torchrec/modules/activation/swish_layer_norm"
+require_relative "torchrec/modules/cross_net/cross_net"
+require_relative "torchrec/modules/deepfm/deepfm"
+require_relative "torchrec/modules/deepfm/factorization_machine"
+require_relative "torchrec/modules/mlp/mlp"
+require_relative "torchrec/modules/mlp/perceptron"
+require_relative "torchrec/modules/utils"
 
 # sparse
-require "torchrec/sparse/jagged_tensor"
+require_relative "torchrec/sparse/jagged_tensor"
 
 # other
-require "torchrec/version"
+require_relative "torchrec/version"
 
 module TorchRec
   class Error < StandardError; end
