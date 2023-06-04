@@ -1,3 +1,7 @@
+## 0.0.3 (unreleased)
+
+- Dropped support for Ruby < 3
+
 ## 0.0.2 (2022-03-14)
 
 - Added `JaggedTensor`
